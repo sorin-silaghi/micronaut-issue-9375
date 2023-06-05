@@ -5,7 +5,7 @@ There are two versions of the API:
    - POST /common
    - POST /new
 
-Cors is enabled in application.yaml as well as API versioning.
+CORS is enabled in application.yaml as well as API versioning.
 
 Making an OPTIONS request to the `/common` endpoint is successful:
 ```
