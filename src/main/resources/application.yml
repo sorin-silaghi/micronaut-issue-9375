@@ -1,0 +1,18 @@
+micronaut:
+  application:
+    name: default
+  server:
+    cors:
+      enabled: true
+  router:
+    versioning:
+      enabled: true
+      default-version: 1
+      header:
+        enabled: true
+        names:
+          - 'x-api-version'
+netty:
+  default:
+    allocator:
+      max-order: 3
