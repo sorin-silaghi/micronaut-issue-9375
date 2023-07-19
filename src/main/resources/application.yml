@@ -1,9 +1,13 @@
 micronaut:
   application:
     name: default
+---
+micronaut:
   server:
     cors:
       enabled: true
+---
+micronaut:
   router:
     versioning:
       enabled: true

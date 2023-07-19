@@ -1,34 +1,34 @@
 package example.micronaut;
 
 import io.micronaut.core.version.annotation.Version;
-import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
-import io.micronaut.http.annotation.Produces;
 
-@Controller("/")
+import java.util.Collections;
+import java.util.Map;
+
+@Controller
 public class TestController {
 
-    @Post(value = "common")
+    public static final String MESSAGE = "message";
+
+    @Get( "/common")
     @Version("1")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String commonEndpointV1() {
-        return "This endpoint exists both in V1 and V2";
+    public Map<String, String> commonEndpointV1() {
+        return Collections.singletonMap(MESSAGE, "common from v1");
     }
 
-    @Post(value = "common")
+    @Get( "/common")
     @Version("2")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String commonEndpointV2() {
-        return "This endpoint exists both in V1 and V2";
+    public Map<String, String> commonEndpointV2() {
+        return Collections.singletonMap(MESSAGE, "common from v2");
     }
 
-    @Post(value = "new")
+    @Get( "/new")
     @Version("2")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String newEndpointV2() {
-        return "This is a new endpoint in V2 of the API";
+    public Map<String, String> newEndpointV2() {
+        return Collections.singletonMap(MESSAGE, "new from v2");
     }
 
 }
